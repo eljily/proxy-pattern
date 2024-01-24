@@ -10,7 +10,9 @@ public class Main {
         //context.setService(new Proxy());
         //context.setService(new SecurityProxy());
        // context.setService(new CacheProxy());
-        context.setService(new LoggingProxy());
+       // context.setService(new LoggingProxy(service));
+        context.setService(new SecurityProxy(new CacheProxy(new LoggingProxy(new ServiceImpl()))));
+        context.compute(3);
         context.compute(3);
     }
 }

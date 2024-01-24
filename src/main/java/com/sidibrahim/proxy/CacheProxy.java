@@ -5,9 +5,14 @@ import java.util.Map;
 
 public class CacheProxy implements IService{
 
-    private final IService service = new ServiceImpl();
+    private final IService service ;
 
     private final Map<Integer,Double> cache = new HashMap<>();
+
+    public CacheProxy(IService service) {
+        this.service = service;
+    }
+
     @Override
     public double compute(int parameter) {
         Double cacheValue = cache.get(parameter);

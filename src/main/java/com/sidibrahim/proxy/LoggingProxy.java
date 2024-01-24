@@ -1,10 +1,12 @@
 package com.sidibrahim.proxy;
 
-import java.time.Instant;
-
 public class LoggingProxy implements IService{
 
-    private final IService service = new ServiceImpl();
+    private final IService service ;
+
+    public LoggingProxy(IService service) {
+        this.service = service;
+    }
 
     @Override
     public double compute(int parameter) {
